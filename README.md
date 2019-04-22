@@ -1,2 +1,2 @@
-# mol_cp19
-Multi player over lan
+# Multiplayer Game over Lan using python
+Multiplayer Game over Lan using python
