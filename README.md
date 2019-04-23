@@ -1,2 +1,2 @@
-# Multiplayer Game over Lan using python
-Multiplayer Game over Lan using python
+# Multiplayer - AirHockey using Python - Over LAN
+Multiplayer - AirHockey using Python - Over LAN
