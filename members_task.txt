@@ -1,0 +1,19 @@
+-- Hussain
+- Pygame Tutorials
+- Networking LAN findings
+
+-- Burhan
+- Pygame Tutorials
+- Control over keyboard and mouse
+
+-- Waleed
+- Pygame Tutorials
+- Design and logic Building
+
+-- Abdul Rehman
+- Pygame Tutorials
+- Design and logic Building
+
+-- Bilal
+- Pygame Tutorials
+- Design and logic Building
