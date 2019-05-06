@@ -19,7 +19,7 @@ screensize = s_width*0.5
 
 #second character
 
-x2= 670
+x2= 680
 y2= 250
 width2=60
 height2=50
