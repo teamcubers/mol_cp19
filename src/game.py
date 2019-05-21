@@ -82,7 +82,7 @@ class Game:
         self.__screen = pygame.display.set_mode((self.__width, self.__height))
         pygame.mouse.set_visible(False)
         # noinspection PyUnresolvedReferences
-        icon = pygame.image.load("resources/images/icon.gif")
+        icon = pygame.image.load("resources/images/logo.png")
         pygame.display.set_icon(icon)
         pygame.display.set_caption("Air Hokey")
         self.__clock = pygame.time.Clock()
@@ -131,7 +131,7 @@ class Game:
             font=GAME_FONT,
             title="Single Player",
             menu_color_title=COLOR_BLACK,
-            menu_color=COLOR_GRAY,
+            menu_color=COLOR_NEV,
             dopause=False
         )
 
@@ -151,7 +151,7 @@ class Game:
             font=GAME_FONT,
             title="About",
             menu_color_title=COLOR_BLACK,
-            menu_color=COLOR_GRAY,
+            menu_color=COLOR_NEV,
             dopause=False
         )
 
@@ -167,7 +167,7 @@ class Game:
             font=GAME_FONT,
             title="Main Menu",
             menu_color_title=COLOR_BLACK,
-            menu_color=COLOR_GRAY,
+            menu_color=COLOR_NEV,
             dopause=False
         )
 
@@ -359,7 +359,7 @@ class Game:
             font=GAME_FONT,
             title="2 Players (LAN)",
             menu_color_title=COLOR_BLACK,
-            menu_color=COLOR_GRAY,
+            menu_color=COLOR_NEV,
             dopause=False
         )
 
@@ -877,16 +877,12 @@ class Game:
         :param y_ball: y coordinate of the ball
         :return: None
         """
-        self.__screen.fill(COLOR_BLACK)
-        for i in range(int(self.__width / self.__grid_width)):
-            for j in range(int(self.__height / self.__grid_width)):
-                gfxdraw.aacircle(self.__screen, self.__grid_x_offset + i * self.__grid_width,
-                                 self.__grid_y_offset + j * self.__grid_width, self.__grid_radius, COLOR_SILVER)
-
+        self.__screen.fill(COLOR_NEV)
         aa_rounded_rect(self.__screen, (x_r1, y_r1, self.__width_r, self.__height_r), COLOR_BLUE_2, 1)
         aa_rounded_rect(self.__screen, (x_r2, y_r2, self.__width_r, self.__height_r), COLOR_RED_2, 1)
         gfxdraw.aacircle(self.__screen, round(x_ball), round(y_ball), self.__ball_radius, COLOR_WHITE)
         gfxdraw.filled_circle(self.__screen, round(x_ball), round(y_ball), self.__ball_radius, COLOR_WHITE)
+        pygame.draw.line(self.__screen, COLOR_WHITE, (430, 0), (430, 500))
 
         pygame.display.flip()
 
