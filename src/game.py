@@ -882,7 +882,11 @@ class Game:
         """
         self.__screen.fill(COLOR_NEV)
 
+        #creating board elements
         pygame.draw.circle(self.__screen, (249, 249, 255), (int(self.__width / 2), int(self.__height / 2)), 110, 1)
+        pygame.draw.circle(self.__screen, (249, 249, 255), (-55 , int(self.__height / 2)), 110, 1)
+        pygame.draw.circle(self.__screen, (249, 249, 255), (int(self.__width + 55) , int(self.__height / 2)), 110, 1)
+
         aa_rounded_rect(self.__screen, (x_r1, y_r1, self.__width_r, self.__height_r), COLOR_RED_2, 1)
         aa_rounded_rect(self.__screen, (x_r2, y_r2, self.__width_r, self.__height_r), COLOR_YELLOW, 1)
         #gfxdraw.aacircle(self.__screen, round(x_ball), round(y_ball), self.__ball_radius, COLOR_WHITE)
