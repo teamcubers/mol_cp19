@@ -880,6 +880,7 @@ class Game:
         #gfxdraw.aacircle(self.__screen, round(x_ball), round(y_ball), self.__ball_radius, COLOR_WHITE)
         gfxdraw.filled_circle(self.__screen, round(x_ball), round(y_ball), self.__ball_radius, COLOR_RED_2)
         pygame.draw.line(self.__screen, COLOR_WHITE, (self.__width / 2, 0), (self.__width / 2, self.__height))
+        pygame.draw.circle(self.__screen, (249, 249, 255), (400, 200), 110, 1)
 
         pygame.display.flip()
 
