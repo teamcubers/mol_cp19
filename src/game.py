@@ -554,23 +554,24 @@ class Game:
         :param x_ball: int, x coordinate of the ball.
         :return: bool, Can move left
         """
+        print(x_rectangle, self.__width / 2, player, 'left')
         if(player == 2):
-            return x_rectangle > self.__width / 2 and 0 < x_ball < self.__width
+            return x_rectangle >= self.__width / 2 and 0 < x_ball < self.__width
         else:
-            return x_rectangle < self.__width / 2 and 0 < x_ball < self.__width
+            return x_rectangle <= self.__width / 2 and x_rectangle >= 3 and 0 < x_ball < self.__width
 
     def _can_move_right(self, x_rectangle, x_ball, player):
         """
-        Checks if the board can move left, ie, has not passed through the wall.
+        Checks if the board can move right, ie, has not passed through the wall.
         :param x_rectangle: int, x coordinate of the board.
         :param x_ball: int, x coordinate of the ball.
-        :return: bool, Can move left
+        :return: bool, Can move right
         """
+        print(x_rectangle, self.__width_r, player, 'right')
         if(player == 2):
-            return x_rectangle > self.__width / 2 and 0 < x_ball < self.__width
+            return x_rectangle >= (self.__width / 2) - 2 and x_rectangle <= self.__width -51 and 0 < x_ball < self.__width
         else:
-            return x_rectangle < self.__width / 2 and 0 < x_ball < self.__width
-        
+            return x_rectangle <= (self.__width / 2) - 50 and 0 < x_ball < self.__width
 
     @staticmethod
     def _is_right_direction(ball_angle):
@@ -816,15 +817,13 @@ class Game:
                     ball_angle = math.pi - ball_angle
 
                     if collision1 is not None:
-                        ball_angle += math.pow(collision1[1] - y_r1 - self.__height_r / 2,
-                                               3) * self.__collision_coefficient
+                        ball_angle += math.pow(collision1[1] - y_r1 - self.__height_r / 2, 3) * self.__collision_coefficient
                         if wrap_to_pi(ball_angle) < -self.__max_ball_angle:
                             ball_angle = -self.__max_ball_angle
                         elif wrap_to_pi(ball_angle) > self.__max_ball_angle:
                             ball_angle = self.__max_ball_angle
                     else:
-                        ball_angle -= math.pow(collision2[1] - y_r2 - self.__height_r / 2,
-                                               3) * self.__collision_coefficient
+                        ball_angle -= math.pow(collision2[1] - y_r2 - self.__height_r / 2, 3) * self.__collision_coefficient
                         if 0 < wrap_to_pi(ball_angle) < math.pi - self.__max_ball_angle:
                             ball_angle = math.pi - self.__max_ball_angle
                         elif self.__max_ball_angle - math.pi < wrap_to_pi(ball_angle) < 0:
@@ -853,7 +852,7 @@ class Game:
                         server_data.do_score_screen(SCORE_SCREEN_LOSE if has_scored else SCORE_SCREEN_SCORED)
                         # Send server data
                         server_data.send_to(self.__client)
-                self._score_screen(screen_type)
+                #self._score_screen(screen_type)
                 return True
 
             if mode == MODE_LAN_SERVER:
@@ -882,7 +881,7 @@ class Game:
         aa_rounded_rect(self.__screen, (x_r2, y_r2, self.__width_r, self.__height_r), COLOR_RED_2, 1)
         gfxdraw.aacircle(self.__screen, round(x_ball), round(y_ball), self.__ball_radius, COLOR_WHITE)
         gfxdraw.filled_circle(self.__screen, round(x_ball), round(y_ball), self.__ball_radius, COLOR_WHITE)
-        pygame.draw.line(self.__screen, COLOR_WHITE, (430, 0), (430, 500))
+        pygame.draw.line(self.__screen, COLOR_WHITE, (self.__width / 2, 0), (self.__width / 2, self.__height))
 
         pygame.display.flip()
 
