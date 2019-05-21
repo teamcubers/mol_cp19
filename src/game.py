@@ -126,8 +126,10 @@ class Game:
         """
         single_player_menu = pygameMenu.Menu(
             self.__screen,
-            window_width=self.__width,
-            window_height=self.__height,
+            window_width = self.__width,
+            window_height = self.__height,
+            menu_width = self.__width,
+            menu_height	= self.__height,
             font=GAME_FONT,
             title="Single Player",
             menu_color_title=COLOR_BLACK,
@@ -146,8 +148,10 @@ class Game:
 
         about_menu = pygameMenu.TextMenu(
             self.__screen,
-            window_width=self.__width,
-            window_height=self.__height,
+            window_width = self.__width,
+            window_height = self.__height,
+            menu_width = self.__width,
+            menu_height	= self.__height,
             font=GAME_FONT,
             title="About",
             menu_color_title=COLOR_BLACK,
@@ -162,8 +166,10 @@ class Game:
 
         menu = pygameMenu.Menu(
             self.__screen,
-            window_width=self.__width,
-            window_height=self.__height,
+            window_width = self.__width,
+            window_height = self.__height,
+            menu_width = self.__width,
+            menu_height	= self.__height,
             font=GAME_FONT,
             title="Main Menu",
             menu_color_title=COLOR_BLACK,
@@ -354,8 +360,10 @@ class Game:
         """
         lan_menu = pygameMenu.Menu(
             self.__screen,
-            window_width=self.__width,
-            window_height=self.__height,
+            window_width = self.__width,
+            window_height = self.__height,
+            menu_width = self.__width,
+            menu_height	= self.__height,
             font=GAME_FONT,
             title="2 Players (LAN)",
             menu_color_title=COLOR_BLACK,
