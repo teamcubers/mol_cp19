@@ -64,7 +64,7 @@ class Game:
 
         # Ball
         self.__ball_radius = int(min(self.__height, self.__width) / 45)
-        self.__ball_start_speed = 2
+        self.__ball_start_speed = 3
         self.__ball_speed_step = 0.2
         self.__ball_max_speed = 10
         self.__has_collided = False
