@@ -554,7 +554,6 @@ class Game:
         :param x_ball: int, x coordinate of the ball.
         :return: bool, Can move left
         """
-        print(x_rectangle, self.__width / 2, player, 'left')
         if(player == 2):
             return x_rectangle >= self.__width / 2 and 0 < x_ball < self.__width
         else:
@@ -567,7 +566,6 @@ class Game:
         :param x_ball: int, x coordinate of the ball.
         :return: bool, Can move right
         """
-        print(x_rectangle, self.__width_r, player, 'right')
         if(player == 2):
             return x_rectangle >= (self.__width / 2) - 2 and x_rectangle <= self.__width -51 and 0 < x_ball < self.__width
         else:
