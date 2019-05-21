@@ -59,8 +59,6 @@ class Game:
         self.__r_hard_speed_offset = 1
         self.__height_r = 50
         self.__width_r = 50
-        # self.__x_r1 = -self.__width_r / 2
-        # self.__x_r2 = self.__width - self.__width_r - self.__x_r1
 
         # Ball
         self.__ball_radius = int(min(self.__height, self.__width) / 45)
@@ -365,7 +363,7 @@ class Game:
             menu_width = self.__width,
             menu_height	= self.__height,
             font=GAME_FONT,
-            title="2 Players (LAN)",
+            title="2 Players (LAN)", 
             menu_color_title=COLOR_BLACK,
             menu_color=COLOR_NEV,
             dopause=False
@@ -858,7 +856,7 @@ class Game:
                         server_data.do_score_screen(SCORE_SCREEN_LOSE if has_scored else SCORE_SCREEN_SCORED)
                         # Send server data
                         server_data.send_to(self.__client)
-                #self._score_screen(screen_type)
+                self._score_screen(screen_type)
                 return True
 
             if mode == MODE_LAN_SERVER:
