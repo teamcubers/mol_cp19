@@ -5,7 +5,7 @@ ABOUT = ["Air-Hockey",
          "Creators : Hussain Mustafa , Burhanuddin Shabbar , Abdul Rehman , Waleed Ansari",
          "Section : BM "]
 
-GAME_FONT = "resources/fonts/ANUDI___.ttf"
+GAME_FONT = "resources/fonts/KaushanScript-Regular.otf"
 
 # Minimum width and height
 MIN_WIDTH = 800
