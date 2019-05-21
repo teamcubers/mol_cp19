@@ -5,7 +5,7 @@ ABOUT = ["Air-Hockey",
          "Creators : Hussain Mustafa , Burhanuddin Shabbar , Abdul Rehman , Waleed Ansari",
          "Section : BM "]
 
-GAME_FONT = "resources/fonts/ANUDI___.ttf"
+GAME_FONT = "resources/fonts/KaushanScript-Regular.otf"
 
 # Minimum width and height
 MIN_WIDTH = 1080
@@ -38,8 +38,14 @@ COLOR_LIGHT_GRAY = (211, 211, 211)
 COLOR_SILVER = (192, 192, 192)
 COLOR_GRAY = (128, 128, 128)
 COLOR_BLACK = (0, 0, 0)
+<<<<<<< HEAD
 COLOR_NEV = (5, 95, 135)
 COLOR_YELLOW = (255, 246, 0)
+=======
+COLOR_NEV=(5, 95, 135)
+COLOR_YELLOW=(255, 246, 0)
+COLOR_ORANGE=(255, 85, 7)
+>>>>>>> 86245fe3ed73c85eb62f521bd3ffa3e2e2ffd01e
 
 # TCP Sockets settings
 TCP_PORT = 1010
