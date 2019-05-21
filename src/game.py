@@ -875,10 +875,10 @@ class Game:
         :return: None
         """
         self.__screen.fill(COLOR_NEV)
-        aa_rounded_rect(self.__screen, (x_r1, y_r1, self.__width_r, self.__height_r), COLOR_BLUE_2, 1)
-        aa_rounded_rect(self.__screen, (x_r2, y_r2, self.__width_r, self.__height_r), COLOR_RED_2, 1)
+        aa_rounded_rect(self.__screen, (x_r1, y_r1, self.__width_r, self.__height_r), COLOR_RED_2, 1)
+        aa_rounded_rect(self.__screen, (x_r2, y_r2, self.__width_r, self.__height_r), COLOR_YELLOW, 1)
         #gfxdraw.aacircle(self.__screen, round(x_ball), round(y_ball), self.__ball_radius, COLOR_WHITE)
-        gfxdraw.filled_circle(self.__screen, round(x_ball), round(y_ball), self.__ball_radius, COLOR_RED_2)
+        gfxdraw.filled_circle(self.__screen, round(x_ball), round(y_ball), self.__ball_radius, COLOR_WHITE)
         pygame.draw.line(self.__screen, COLOR_WHITE, (self.__width / 2, 0), (self.__width / 2, self.__height))
         pygame.draw.circle(self.__screen, (249, 249, 255), (400, 200), 110, 1)
 
