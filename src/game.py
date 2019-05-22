@@ -855,6 +855,11 @@ class Game:
                         server_data.do_update_score(has_scored)
                         server_data.do_score_screen(SCORE_SCREEN_LOSE if has_scored else SCORE_SCREEN_SCORED)
                         # Send server data
+                        client_data.x_r1 = 30
+                        client_data.x_r2 = self.__width - 80
+                        x_r1 = 30
+                        x_r2 = self.__width - 80
+
                         server_data.send_to(self.__client)
                 self._score_screen(screen_type)
                 return True
