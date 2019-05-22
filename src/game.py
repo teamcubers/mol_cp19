@@ -59,7 +59,6 @@ class Game:
         self.__r_hard_speed_offset = 1
         self.__height_r = 50
         self.__width_r = 50
-        self.x_r2 = 0
 
         # Ball
         self.__ball_radius = int(min(self.__height, self.__width) / 30)
@@ -683,7 +682,7 @@ class Game:
         y_r2 = y_r1
 
         x_r1 = 30
-        self.x_r2 = self.__width - 80
+        x_r2 = self.__width - 80
 
         x_ball = int(self.__width / 2)
         y_ball = int(self.__height / 2)
@@ -726,10 +725,10 @@ class Game:
                     y_r2 -= self.__r_max_speed
                 elif pressed[pygame.K_DOWN] and self._can_move_down(y_r2, x_ball):
                     y_r2 += self.__r_max_speed
-                elif pressed[pygame.K_LEFT] and self._can_move_left(self.x_r2, x_ball, 2):
-                    self.x_r2 -= self.__r_max_speed
-                elif pressed[pygame.K_RIGHT] and self._can_move_right(self.x_r2, x_ball, 2):
-                    self.x_r2 += self.__r_max_speed
+                elif pressed[pygame.K_LEFT] and self._can_move_left(x_r2, x_ball, 2):
+                    x_r2 -= self.__r_max_speed
+                elif pressed[pygame.K_RIGHT] and self._can_move_right(x_r2, x_ball, 2):
+                    x_r2 += self.__r_max_speed
             else:
                 if pressed[pygame.K_UP] and self._can_move_up(y_r1, x_ball):
                     y_r1 -= self.__r_max_speed
@@ -745,7 +744,7 @@ class Game:
                 y_desired = None
                 if self.__level == LEVEL_IMPOSSIBLE:
                     if self._is_right_direction(ball_angle):
-                        d = (self.x_r2 - x_ball) / math.cos(ball_angle)
+                        d = (x_r2 - x_ball) / math.cos(ball_angle)
                         y_desired = round(d * math.sin(ball_angle) + y_ball)
                         i = 0
                         while y_desired > self.__height:
@@ -779,7 +778,7 @@ class Game:
                 if not client_data.receive_from(self.__client):
                     return False
                 y_r2 = client_data.y_r2
-                self.x_r2 = client_data.x_r2
+                x_r2 = client_data.x_r2
                 # Update data to send to client
                 server_data.y_r1 = y_r1
                 server_data.x_r1 = x_r1
@@ -802,7 +801,7 @@ class Game:
             collision1 = rounded_rect_collided_with_circle((x_r1, y_r1, self.__width_r, self.__height_r),
                                                            1, (x_ball, y_ball), self.__ball_radius)
 
-            collision2 = rounded_rect_collided_with_circle((self.x_r2, y_r2, self.__width_r, self.__height_r),
+            collision2 = rounded_rect_collided_with_circle((x_r2, y_r2, self.__width_r, self.__height_r),
                                                            1, (x_ball, y_ball), self.__ball_radius)
 
             if collision1 is not None or collision2 is not None:
@@ -836,7 +835,7 @@ class Game:
                     # Set collision flag
                     self.__has_collided = True
             elif self.__has_collided and \
-                    x_r1 + self.__width_r + self.__ball_radius < x_ball < self.x_r2 - self.__ball_radius:
+                    x_r1 + self.__width_r + self.__ball_radius < x_ball < x_r2 - self.__ball_radius:
                 # Clear collision flag only if there is no risk of a new collision in the same place
                 self.__has_collided = False
 
@@ -866,7 +865,7 @@ class Game:
                 server_data.clear()
 
             # Do graphic part
-            self._do_graphics(y_r1, x_r1, y_r2, self.x_r2, x_ball, y_ball)
+            self._do_graphics(y_r1, x_r1, y_r2, x_r2, x_ball, y_ball)
             self.__clock.tick(self.__fps)
 
     def _do_graphics(self, y_r1, x_r1, y_r2, x_r2, x_ball, y_ball):
@@ -921,9 +920,9 @@ class Game:
                 client_data.y_r2 -= self.__r_max_speed
             elif pressed[pygame.K_DOWN] and self._can_move_down(client_data.y_r2, server_data.x_ball):
                 client_data.y_r2 += self.__r_max_speed
-            elif pressed[pygame.K_LEFT] and self._can_move_left(self.x_r2, x_ball, 2):
+            elif pressed[pygame.K_LEFT] and self._can_move_left(client_data.x_r2, server_data.x_ball, 2):
                 client_data.x_r2 -= self.__r_max_speed
-            elif pressed[pygame.K_RIGHT] and self._can_move_right(self.x_r2, x_ball, 2):
+            elif pressed[pygame.K_RIGHT] and self._can_move_right(client_data.x_r2, server_data.x_ball, 2):
                 client_data.x_r2 += self.__r_max_speed
 
             # Send data to server
