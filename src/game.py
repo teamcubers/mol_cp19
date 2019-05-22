@@ -857,6 +857,8 @@ class Game:
                         # Send server data
                         client_data.x_r1 = 30
                         client_data.x_r2 = self.__width - 80
+                        x_r1 = 30
+                        x_r2 = self.__width - 80
 
                         server_data.send_to(self.__client)
                 self._score_screen(screen_type)
