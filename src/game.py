@@ -905,7 +905,7 @@ class Game:
         client_data = self._ClientData()
 
         client_data.y_r2 = (self.__height - self.__height_r) / 2
-        client_data.x_r2 = (self.__width - self.__width_r) / 2
+        client_data.x_r2 = self.__width - 80
         self._reset_score()
 
         while True:
